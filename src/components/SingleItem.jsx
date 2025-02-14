@@ -2,15 +2,15 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 
-const SingleItem = ({ title, image, type }) => {
+const SingleItem = ({ item, path }) => {
   return (
-    <div className="single-item">
+    <a href={`${path}/${item.id}`} className="single-item">
       <div className="single-item__div-image-button">
         <div className="single-item__div-image">
           <img
             className="single-item__image"
-            src={image}
-            alt="Imagem do Artista X"
+            src={item.image}
+            alt={`Imagem do Artista ${item.name}`}
           />
         </div>
 
@@ -19,19 +19,18 @@ const SingleItem = ({ title, image, type }) => {
 
       <div className="single-item__texts">
         <div className="single-item__2lines">
-          <p className="single-item__title">{title}</p>
+          <p className="single-item__title">{item.name}</p>
         </div>
 
-        <p className="single-item__type">{type}</p>
+        <p className="single-item__type">{item.artist ?? "Artista"}</p>
       </div>
-    </div>
+    </a>
   );
 };
 
 SingleItem.propTypes = {
-  title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  item: PropTypes.shape().isRequired,
+  path: PropTypes.string.isRequired,
 };
 
 export default SingleItem;

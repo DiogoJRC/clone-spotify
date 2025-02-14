@@ -2,25 +2,20 @@ import PropTypes from "prop-types";
 
 import SingleItem from "./SingleItem";
 
-const ItemList = ({ title, items }) => {
+const ItemList = ({ title, path, singleItemPath, items, itemsQty = 5 }) => {
   return (
     <div className="item-list">
       <div className="item-list__header">
         <h2>{title}</h2>
-        <a className="item-list__link" href="/">
+        <a href={path} className="item-list__link">
           Mostrar tudo
         </a>
       </div>
       <div className="item-list__container">
-        {Array(items)
-          .fill()
-          .map((item, index) => (
-            <SingleItem
-              key={index}
-              title="Jorge & Mateus"
-              image="https://i.scdn.co/image/ab6761610000517477937baabc49dea13c17c706"
-              type="Artista"
-            />
+        {items
+          .filter((item, index) => index <= itemsQty)
+          .map((item) => (
+            <SingleItem key={item.id} item={item} path={singleItemPath} />
           ))}
       </div>
     </div>
@@ -29,7 +24,10 @@ const ItemList = ({ title, items }) => {
 
 ItemList.propTypes = {
   title: PropTypes.string.isRequired,
-  items: PropTypes.number.isRequired,
+  path: PropTypes.string.isRequired,
+  singleItemPath: PropTypes.string.isRequired,
+  items: PropTypes.shape().isRequired,
+  itemsQty: PropTypes.number,
 };
 
 export default ItemList;
