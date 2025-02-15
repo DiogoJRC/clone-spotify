@@ -23,7 +23,7 @@ const ItemList = ({ title, path, singleItemPath, items, itemsQty = 5 }) => {
       </div>
       <div className="item-list__container">
         {filteredItems.map((item) => (
-          <SingleItem key={item.id} item={item} path={singleItemPath} />
+          <SingleItem key={item._id} item={item} path={singleItemPath} />
         ))}
       </div>
     </div>

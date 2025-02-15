@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 
-import { artists } from "../assets/database/artists";
-import { songs } from "../assets/database/songs";
+import { artists, songs } from "../utils/api";
 
 import Player from "../components/Player";
 
@@ -13,15 +12,13 @@ const Song = () => {
     name,
     duration,
     artist: artistName,
-  } = songs.filter((song) => song.id === Number(id))[0];
+  } = songs.filter((song) => song._id === id)[0];
 
   const artist = artists.filter((artist) => artist.name === artistName)[0];
 
   const artistSongs = songs.filter((song) => song.artist === artistName);
 
-  let currentSongIndex = artistSongs.findIndex(
-    (song) => song.id === Number(id)
-  );
+  let currentSongIndex = artistSongs.findIndex((song) => song._id === id);
 
   //   if (!arrowNav) {
   //     // removes the current song and inserts it to the beginning of the array
@@ -30,11 +27,11 @@ const Song = () => {
   //     currentSongIndex = 0;
   //   }
 
-  const prevSongId = artistSongs[currentSongIndex - 1]?.id;
+  const prevSongId = artistSongs[currentSongIndex - 1]?._id;
   const nextSongId =
     currentSongIndex === artistSongs.length - 1
       ? undefined
-      : artistSongs[currentSongIndex + 1].id;
+      : artistSongs[currentSongIndex + 1]._id;
 
   return (
     <div className="song">
@@ -45,7 +42,7 @@ const Song = () => {
       </div>
 
       <div className="song__bar">
-        <Link to={`/artist/${artist.id}`} className="song__artist-image">
+        <Link to={`/artist/${artist._id}`} className="song__artist-image">
           <img
             width={75}
             height={75}

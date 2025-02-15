@@ -11,7 +11,7 @@ const SongList = ({ songs }) => {
       {songs
         .filter((song, index) => index < items)
         .map((song, index) => (
-          <SongItem key={song.id} index={index} song={song} />
+          <SongItem key={song._id} index={index} song={song} />
         ))}
 
       <p

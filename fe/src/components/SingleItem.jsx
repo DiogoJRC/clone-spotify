@@ -4,7 +4,7 @@ import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 
 const SingleItem = ({ item, path }) => {
   return (
-    <a href={`${path}/${item.id}`} className="single-item">
+    <a href={`${path}/${item._id}`} className="single-item">
       <div className="single-item__div-image-button">
         <div className="single-item__div-image">
           <img

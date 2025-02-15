@@ -2,8 +2,7 @@ import PropTypes from "prop-types";
 
 import ItemList from "./ItemList";
 
-import { artists } from "../assets/database/artists";
-import { songs } from "../assets/database/songs";
+import { artists, songs } from "../utils/api";
 
 const Main = ({ type = "all" }) => {
   return (

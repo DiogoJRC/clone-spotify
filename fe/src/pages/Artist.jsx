@@ -2,22 +2,19 @@ import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 
-import { artists } from "../assets/database/artists";
-import { songs } from "../assets/database/songs";
+import { artists, songs } from "../utils/api";
 
 import SongList from "../components/SongList";
 
 const Artist = () => {
   const { id } = useParams();
 
-  const { name, banner } = artists.filter(
-    (artist) => artist.id === Number(id)
-  )[0];
+  const { name, banner } = artists.filter((artist) => artist._id === id)[0];
 
   const artistSongs = songs.filter((song) => song.artist === name);
 
   const randomSongIndex = Math.floor(Math.random() * (artistSongs.length - 1));
-  const randomSongId = artistSongs[randomSongIndex].id;
+  const randomSongId = artistSongs[randomSongIndex]._id;
 
   return (
     <div className="artist">
