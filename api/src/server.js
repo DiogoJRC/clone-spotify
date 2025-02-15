@@ -1,17 +1,16 @@
-import express from "express";
+const express = require("express");
 
-import { artists } from "../../fe/src/assets/database/artists.js";
-import { songs } from "../../fe/src/assets/database/songs.js";
+const { db } = require("./connect.js");
 
 const app = express();
 const port = 5174;
 
-app.get("/artists", (request, response) => {
-  response.send(artists);
+app.get("/artists", async (request, response) => {
+  response.send(await db.collection("artist").find({}).toArray());
 });
 
-app.get("/songs", (request, response) => {
-  response.send(songs);
+app.get("/songs", async (request, response) => {
+  response.send(await db.collection("songs").find({}).toArray());
 });
 
 app.listen(port, () => {
