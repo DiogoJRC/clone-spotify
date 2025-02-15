@@ -6,7 +6,7 @@ const app = express();
 const port = 5174;
 
 app.get("/artists", async (request, response) => {
-  response.send(await db.collection("artist").find({}).toArray());
+  response.send(await db.collection("artists").find({}).toArray());
 });
 
 app.get("/songs", async (request, response) => {
