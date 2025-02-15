@@ -11,6 +11,7 @@ const Song = () => {
     image,
     name,
     duration,
+    audio,
     artist: artistName,
   } = songs.filter((song) => song._id === id)[0];
 
@@ -53,6 +54,7 @@ const Song = () => {
 
         <Player
           duration={duration}
+          audio={audio}
           prevSongId={prevSongId}
           nextSongId={nextSongId}
         />

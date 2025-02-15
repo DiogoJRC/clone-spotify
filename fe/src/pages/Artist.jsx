@@ -33,7 +33,7 @@ const Artist = () => {
         <SongList songs={artistSongs} />
       </div>
 
-      <Link to={`/song/${randomSongId}`}>
+      <Link to={`/song/${randomSongId}?play=true`}>
         <FontAwesomeIcon
           className="single-item__icon single-item__icon--artist"
           icon={faCirclePlay}

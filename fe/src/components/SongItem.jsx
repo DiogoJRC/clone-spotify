@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const SongItem = ({ index, song }) => {
   return (
-    <Link to={`/song/${song._id}`} className="song-item">
+    <Link to={`/song/${song._id}?play=true`} className="song-item">
       <div className="song-item__number-album">
         <p>{index + 1}</p>
 

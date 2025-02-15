@@ -3,8 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 
 const SingleItem = ({ item, path }) => {
+  const queryParam = path === "/song" ? "?play=true" : "";
+
   return (
-    <a href={`${path}/${item._id}`} className="single-item">
+    <a href={`${path}/${item._id}${queryParam}`} className="single-item">
       <div className="single-item__div-image-button">
         <div className="single-item__div-image">
           <img
