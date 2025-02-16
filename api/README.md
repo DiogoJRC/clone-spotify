@@ -34,7 +34,7 @@ Spotify Clone backend built with **Node.js** with **Express** and **MongoDB**. T
 
 3. **Setup and Run**:
 
-   Install backend dependencies:
+   Install dependencies:
 
    ```bash
    npm install
@@ -50,8 +50,9 @@ Spotify Clone backend built with **Node.js** with **Express** and **MongoDB**. T
 
    Replace `your_mongodb_connection_url` with your MongoDB connection URL (either local or MongoDB Atlas).
 
+   Start the backend API:
+   
    ```bash
-   cd ../api
    npm start
    ```
 
